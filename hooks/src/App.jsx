@@ -14,7 +14,8 @@ const Num = () => {
   return (
     <>
       <h1>{count}</h1>
-      <button onClick={add}>up</button>
+      <button onClick={add}>up </button>
+
       <br />
       <br />
       <button onClick={subtract}>down</button>

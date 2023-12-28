@@ -1,9 +1,10 @@
 body {
-  background-color: #212121;
+/* background-image: url(https://images.app.goo.gl/RHLz8CjHwEDqtd1T7); */
+background-color:rgba(0, 255, 238, 0.752);
   color: whitesmoke;
   font-family: cursive;
 }
 button {
-  padding: 10px 10px 10px 10px;
-  border-radius: 10%;
+  padding: 10px 50px 10px 50px;
+  border-radius: 10px;
 }

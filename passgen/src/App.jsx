@@ -28,7 +28,7 @@ const App = () => {
   };
   return (
     <>
-      <h1> Password Generator</h1>
+      <h1 className=""> Password Generator</h1>
       <input
         ref={passref}
         type="text"

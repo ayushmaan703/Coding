@@ -27,44 +27,62 @@ const App = () => {
     window.navigator.clipboard.writeText(pass);
   };
   return (
-    <div className="h-screen text-white w-full grid place-content-center bg-slate-900 ">
+    <div className="h-screen w-full grid place-content-center bg-slate-900 text-white">
       <h1 className="text-3xl "> Password Generator</h1>
-      <input
-        ref={passref}
-        type="text"
-        value={pass}
-        placeholder="password"
-        readOnly
-      />
-      <button onClick={copytoclip}>copy</button>
-      <br />
-      <input
-        min={8}
-        max={50}
-        type="range"
-        value={length}
-        onChange={(e) => setlength(e.target.value)}
-        id="len"
-      />
-      <label htmlFor="len">Length:{length}</label>
-      <br />
-      <input
-        type="checkbox"
-        id="num"
-        defaultChecked={numin}
-        onClick={() => {
-          setnumin((prev) => !prev);
-        }}
-      />
-      <label htmlFor="num">Number</label>
-      <br />
-      <input
-        type="checkbox"
-        id="ch"
-        defaultChecked={charin}
-        onClick={() => setcharin((prev) => !prev)}
-      />
-      <label htmlFor="ch">Character</label>
+      <div className="h-[4px] bg-yellow-400 rounded w-[250px] mt-2"></div>
+      <div>
+        <input
+          className="text-black  mt-8 mb-8 rounded-l-md pr-4 pt-2 pl-4 pb-2"
+          ref={passref}
+          type="text"
+          value={pass}
+          placeholder="password"
+          readOnly
+        />
+        <button
+          onClick={copytoclip}
+          className=" bg-blue-500  pr-4 pt-2 pl-4 pb-2   rounded-r-md  hover:bg-gray-600 mt-8 mb-8 text-bold"
+        >
+          Copy
+        </button>
+      </div>
+
+      <div className="flex flex-row justify-evenly">
+        <label htmlFor="len">Length: {length}</label>
+        <input
+          min={8}
+          max={50}
+          type="range"
+          value={length}
+          onChange={(e) => setlength(e.target.value)}
+          id="len"
+        />
+      </div>
+      <div className="flex flex-row mt-4  justify-evenly  ">
+        <div>
+          <input
+            type="checkbox"
+            id="num"
+            defaultChecked={numin}
+            onClick={() => {
+              setnumin((prev) => !prev);
+            }}
+          />
+          <label className="text-bold" htmlFor="num">
+            {" "}
+            Number
+          </label>
+        </div>
+        <div>
+          <input
+            type="checkbox"
+            id="ch"
+            defaultChecked={charin}
+            onClick={() => setcharin((prev) => !prev)}
+          />
+          <label htmlFor="ch"> Character</label>
+        </div>
+      </div>
     </div>
   );
 };

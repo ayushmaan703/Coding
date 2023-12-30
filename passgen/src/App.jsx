@@ -1,10 +1,11 @@
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 
 const App = () => {
   const [length, setlength] = useState(8);
   const [charin, setcharin] = useState(false);
   const [numin, setnumin] = useState(false);
   const [pass, setpass] = useState("");
+  const passref = useRef();
 
   let createpass = useCallback(() => {
     let pass = "";
@@ -21,11 +22,22 @@ const App = () => {
   useEffect(() => {
     createpass();
   }, [numin, charin, length, createpass]);
-
+  const copytoclip = () => {
+    passref.current?.select();
+    window.navigator.clipboard.writeText(pass);
+  };
   return (
     <>
       <h1> Password Generator</h1>
-      <input type="text" value={pass} placeholder="password" readOnly />
+      <input
+        ref={passref}
+        type="text"
+        value={pass}
+        placeholder="password"
+        readOnly
+      />
+      <button onClick={copytoclip}>copy</button>
+      <br />
       <input
         min={8}
         max={50}
@@ -35,6 +47,7 @@ const App = () => {
         id="len"
       />
       <label htmlFor="len">Length:{length}</label>
+      <br />
       <input
         type="checkbox"
         id="num"
@@ -44,6 +57,7 @@ const App = () => {
         }}
       />
       <label htmlFor="num">Number</label>
+      <br />
       <input
         type="checkbox"
         id="ch"

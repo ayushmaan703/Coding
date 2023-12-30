@@ -5,4 +5,5 @@ export default {
     extend: {},
   },
   plugins: [],
+  "tailwindCSS.classAttributes": ["class", "className", "ngClass", "class:list"]
 };

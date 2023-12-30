@@ -27,8 +27,8 @@ const App = () => {
     window.navigator.clipboard.writeText(pass);
   };
   return (
-    <>
-      <h1 className=""> Password Generator</h1>
+    <div className="h-screen text-white w-full grid place-content-center bg-slate-900 ">
+      <h1 className="text-3xl "> Password Generator</h1>
       <input
         ref={passref}
         type="text"
@@ -65,7 +65,7 @@ const App = () => {
         onClick={() => setcharin((prev) => !prev)}
       />
       <label htmlFor="ch">Character</label>
-    </>
+    </div>
   );
 };
 export default App;
